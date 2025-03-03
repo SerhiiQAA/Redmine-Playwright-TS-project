@@ -88,7 +88,7 @@ test('Registration with different passwords, TC003', async ({ page }) => {
   await registerPage.fillRegisterForm(newUser);
   await registerPage.submit();
 
-  await registerPage.expectErrorMessages(['Password doesn\'t match confirmation']);
+  await registerPage.expectErrorMessages(['ssssPassword doesn\'t match confirmation']);
 });
 
 test('Registration without required fields, TC004', async ({ page }) => {
