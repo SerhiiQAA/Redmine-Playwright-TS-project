@@ -12,5 +12,5 @@ Reports are available on GitHub Pages in this branch.
 
 ## Installation and Test Execution
 
-For installation dependencies and running tests, please refer to the main branch of the repository.
+For installation dependencies and running tests, please refer to the master branch of the repository.
 
