@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Node.js
+node_modules/
+dist/
+tmp/
