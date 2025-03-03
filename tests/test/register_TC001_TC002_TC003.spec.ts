@@ -39,7 +39,7 @@ test('Registration with valid data, TC001', async ({ page }) => {
   await registerPage.fillRegisterForm(newUser);
   await registerPage.submit();
 
-  const successMessage = `Account was successfully created. An email containing the instructions to activate your account was sent to ${userData.email}.`;
+  const successMessage = `sssAccount was successfully created. An email containing the instructions to activate your account was sent to ${userData.email}.`;
   await expect(page).toHaveURL('/login');
   await loginPage.expectSuccessMessage(successMessage);
 
