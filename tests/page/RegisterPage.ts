@@ -67,11 +67,23 @@ class RegisterPage {
   }
 
   async expectErrorMessages(messages: string[]) {
-    const errorMessages = await this.getErrorMessages();
+
+    const errorLocator = this.page.locator(this.selectors.errorMessages);
+    await errorLocator.first().waitFor({ state: 'visible', timeout: 5000 });
+    const errorMessages = await errorLocator.allTextContents();
     messages.forEach(message => {
-      expect(errorMessages).toContain(message);
+      if (!errorMessages.includes(message)) {
+        throw new Error(`Expected message not found: "${message}"`);
+      }
     });
   }
+  
+  // async getErrorMessagesNew() {
+  //   const errorLocator = this.page.locator(this.selectors.errorMessages);
+  //   await errorLocator.waitFor({ state: 'visible', timeout: 5000 });
+  //   return errorLocator.allTextContents();
+  // }
+  
 }
 
 export { RegisterPage };
