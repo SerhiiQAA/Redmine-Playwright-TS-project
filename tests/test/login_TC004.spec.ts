@@ -4,43 +4,40 @@ import { faker } from '@faker-js/faker';
 import fs from 'fs';
 import path from 'path';
 
-test('Login with empty fields, TC004', async ({ page }) => {
-  const loginPage = new LoginPage(page);
+let loginPage;
 
+test.beforeEach(async ({ page }) => {
+  loginPage = new LoginPage(page);
   await loginPage.goto();
-  await loginPage.submitLoginForm();
-  await loginPage.getErrorMessage('Invalid user or password');
 });
 
-test('Login with invalid data', async ({ page }) => {
-  const loginPage = new LoginPage(page);
+test('Login with empty fields, TC004', async () => {
+  await loginPage.submitLoginForm();
+  await loginPage.expectErrorMessage('Invalid user or password');
+});
+
+test('Login with invalid data', async () => {
   const invalidUser = faker.internet.username();
   const invalidPassword = faker.internet.password();
 
-  await loginPage.goto();
   await loginPage.fillLoginForm(invalidUser, invalidPassword);
   await loginPage.submitLoginForm();
-  await loginPage.getErrorMessage('Invalid user or password');
+  await loginPage.expectErrorMessage('Invalid user or password');
 });
 
-test('Login with only login', async ({ page }) => {
-  const loginPage = new LoginPage(page);
+test('Login with only login', async () => {
   const validUser = faker.internet.username();
 
-  await loginPage.goto();
   await loginPage.fillLoginForm(validUser, '');
   await loginPage.submitLoginForm();
-  await loginPage.getErrorMessage('Invalid user or password');
+  await loginPage.expectErrorMessage('Invalid user or password');
 });
 
-test('Login with only password', async ({ page }) => {
-  const loginPage = new LoginPage(page);
+test('Login with only password', async () => {
   const validPassword = faker.internet.password();
 
-  await loginPage.goto();
   await loginPage.fillLoginForm('', validPassword);
   await loginPage.submitLoginForm();
-  await loginPage.getErrorMessage('Invalid user or password');
+  await loginPage.expectErrorMessage('Invalid user or password');
 });
-
 

@@ -36,12 +36,6 @@ class LoginPage {
     await this.page.locator(this.selectors.lostPasswordLink).click();
   }
 
-  async getErrorMessage(p0: string) {
-    const errorMessageLocator = this.page.locator(this.selectors.errorMessage);
-    await errorMessageLocator.waitFor({ state: 'visible', timeout: 60000 });
-    return errorMessageLocator.textContent();
-  }
-
   async getSuccessMessage() {
     return this.page.locator(this.selectors.successMessage).textContent();
   }
