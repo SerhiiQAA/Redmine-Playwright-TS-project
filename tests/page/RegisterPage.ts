@@ -14,7 +14,7 @@ class RegisterPage {
     organization: '#user_custom_field_values_5',
     location: '#user_custom_field_values_6',
     ircNick: '#user_custom_field_values_3',
-    submitButton: '//input[@type="submit"]',
+    registerButton: '//input[@type="submit"]',
     errorMessages: '//div[@id="errorExplanation"]//li'
   };
 
@@ -54,8 +54,8 @@ class RegisterPage {
     }
   }
 
-  async submit() {
-    await this.page.locator(this.selectors.submitButton).click();
+  async registerButtonClick() {
+    await this.page.locator(this.selectors.registerButton).click();
   }
 
   async getErrorMessages() {

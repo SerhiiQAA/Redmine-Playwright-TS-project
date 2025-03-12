@@ -42,7 +42,7 @@ test('Registration with valid data, TC001', async () => {
   };
 
   await registerPage.fillRegisterForm(newUser);
-  await registerPage.submit();
+  await registerPage.registerButtonClick();
 
   const successMessage = `Account was successfully created. An email containing the instructions to activate your account was sent to ${userData.email}.`;
   await expect(registerPage.page).toHaveURL('/login');
@@ -54,7 +54,7 @@ test('Registration with valid data, TC001', async () => {
 
 test('Registration with empty fields, TC002', async () => {
   await mainPage.clickRegister();
-  await registerPage.submit();
+  await registerPage.registerButtonClick();
 
   await expect(registerPage.getUserLoginField()).not.toHaveCSS('caret-color', 'auto'); //cursor
   await registerPage.expectErrorMessages([
@@ -82,7 +82,7 @@ test('Registration with different passwords, TC003', async () => {
   };
 
   await registerPage.fillRegisterForm(newUser);
-  await registerPage.submit();
+  await registerPage.registerButtonClick();
 
   await registerPage.expectErrorMessages(['Password doesn\'t match confirmation']);
 });
@@ -97,7 +97,7 @@ test('Registration without required fields, TC004', async () => {
   };
 
   await registerPage.fillRegisterForm(incompleteData);
-  await registerPage.submit();
+  await registerPage.registerButtonClick();
 
   await registerPage.expectErrorMessages([
     'Email cannot be blank',
