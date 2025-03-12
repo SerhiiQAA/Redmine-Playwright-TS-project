@@ -3,17 +3,17 @@ import { Page, expect } from '@playwright/test';
 class RegisterPage {
   public selectors = {
     header: '//h2',
-    userLogin: '//input[@id="user_login"]',
-    userPassword: '//input[@id="user_password"]',
-    userPasswordConfirmation: '//input[@id="user_password_confirmation"]',
-    userFirstName: '//input[@id="user_firstname"]',
-    userLastName: '//input[@id="user_lastname"]',
-    userEmail: '//input[@id="user_mail"]',
-    hideEmailCheckbox: '//input[@id="pref_hide_mail"]',
-    userLanguage: '//select[@id="user_language"]',
-    organization: '//input[@id="user_custom_field_values_5"]',
-    location: '//input[@id="user_custom_field_values_6"]',
-    ircNick: '//input[@id="user_custom_field_values_3"]',
+    userLogin: '#user_login',
+    userPassword: '#user_password',
+    userPasswordConfirmation: '#user_password_confirmation',
+    userFirstName: '#user_firstname',
+    userLastName: '#user_lastname',
+    userEmail: '#user_mail',
+    hideEmailCheckbox: '#pref_hide_mail',
+    userLanguage: '#user_language',
+    organization: '#user_custom_field_values_5',
+    location: '#user_custom_field_values_6',
+    ircNick: '#user_custom_field_values_3',
     submitButton: '//input[@type="submit"]',
     errorMessages: '//div[@id="errorExplanation"]//li'
   };

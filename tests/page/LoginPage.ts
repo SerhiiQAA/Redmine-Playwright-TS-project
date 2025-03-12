@@ -1,15 +1,16 @@
 import { Page, expect } from '@playwright/test';
 
 class LoginPage {
+
   public selectors = {
-    usernameField: '//input[@id="username"]',
-    passwordField: '//input[@id="password"]',
-    lostPasswordLink: '//a[@class="lost_password"]',
-    rememberMeCheckbox: '//input[@type="checkbox"]',
-    loginButton: '//input[@id="login-submit"]',
-    errorMessage: '//div[@id="flash_error"]',
-    successMessage: '//div[@id="flash_notice"]',
-  };
+      usernameField: '#username',
+      passwordField: '#password',
+      lostPasswordLink: '.lost_password',
+      rememberMeCheckbox: '//input[@type="checkbox"]',
+      loginButton: '#login-submit',
+      errorMessage: '#flash_error',
+      successMessage: '#flash_notice',
+    };
 
   constructor(readonly page: Page) {}
 

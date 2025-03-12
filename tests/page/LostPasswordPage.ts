@@ -3,9 +3,9 @@ import { Page, expect } from '@playwright/test';
 class LostPasswordPage {
   public selectors = {
     header: '//h2',
-    emailInput: '//input[@id="mail"]',
+    emailInput: '#mail',
     submitButton: '//input[@type="submit"]',
-    errorMessage: '//div[@id="flash_error"]',
+    errorMessage: '#flash_error',
   };
 
   constructor(private page: Page) {}

@@ -1,16 +1,17 @@
 import { Page } from '@playwright/test';
 
 class MainPage {
+
   public selectors = {
-    loginButton: '//a[@class="login"]',
-    registerButton: '//a[@class="register"]',
-    homeButton: '//a[@class="home"]',
-    projectsButton: '//a[@class="projects"]',
-    helpButton: '//a[@class="help"]',
-    searchField: '//input[@class="small"]',
-    searchProjectButton: '//div[@id="project-jump"]',
-    searchProjectField: '//input[@id="projects-quick-search"]',
-  };
+      loginButton: '.login',
+      registerButton: '.register',
+      homeButton: '.home',
+      projectsButton: '//a[@class="projects"]',
+      helpButton: '.help',
+      searchField: '//input[@class="small"]',
+      searchProjectButton: '#project-jump',
+      searchProjectField: '#projects-quick-search',
+    };
 
   constructor(private page: Page) {}
 
