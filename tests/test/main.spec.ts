@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { MainPage } from '../page/MainPage';
 
-test('header elements presence', async ({ page }) => {
+test('Header elements presence', async ({ page }) => {
   const mainPage = new MainPage(page);
 
   await mainPage.goto();

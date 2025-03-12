@@ -12,7 +12,7 @@ test('Login with empty fields, TC004', async ({ page }) => {
   await loginPage.getErrorMessage('Invalid user or password');
 });
 
-test('login with invalid data', async ({ page }) => {
+test('Login with invalid data', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const invalidUser = faker.internet.username();
   const invalidPassword = faker.internet.password();
@@ -23,7 +23,7 @@ test('login with invalid data', async ({ page }) => {
   await loginPage.getErrorMessage('Invalid user or password');
 });
 
-test('login with only login', async ({ page }) => {
+test('Login with only login', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const validUser = faker.internet.username();
 
@@ -33,7 +33,7 @@ test('login with only login', async ({ page }) => {
   await loginPage.getErrorMessage('Invalid user or password');
 });
 
-test('login with only password', async ({ page }) => {
+test('Login with only password', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const validPassword = faker.internet.password();
 
