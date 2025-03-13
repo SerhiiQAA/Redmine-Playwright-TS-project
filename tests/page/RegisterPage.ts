@@ -54,7 +54,7 @@ class RegisterPage {
     }
   }
 
-  async registerButtonClick() {
+  async clickRegisterButtonInForm() {
     await this.page.locator(this.selectors.registerButton).click();
   }
 
@@ -77,13 +77,6 @@ class RegisterPage {
       }
     });
   }
-  
-  // async getErrorMessagesNew() {
-  //   const errorLocator = this.page.locator(this.selectors.errorMessages);
-  //   await errorLocator.waitFor({ state: 'visible', timeout: 5000 });
-  //   return errorLocator.allTextContents();
-  // }
-  
 }
 
 export { RegisterPage };

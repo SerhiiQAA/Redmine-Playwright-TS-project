@@ -23,7 +23,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('Registration with valid data, TC001', async () => {
-  await mainPage.clickRegister();
+  await mainPage.clickRegisterButton();
 
   userData.password = faker.internet.password({ length: 10 });
   userData.email = faker.internet.email();
@@ -53,8 +53,8 @@ test('Registration with valid data, TC001', async () => {
 });
 
 test('Registration with empty fields, TC002', async () => {
-  await mainPage.clickRegister();
-  await registerPage.registerButtonClick();
+  await mainPage.clickRegisterButton();
+  await registerPage.clickRegisterButtonInForm();
 
   await expect(registerPage.getUserLoginField()).not.toHaveCSS('caret-color', 'auto'); //cursor
   await registerPage.expectErrorMessages([
@@ -67,7 +67,7 @@ test('Registration with empty fields, TC002', async () => {
 });
 
 test('Registration with different passwords, TC003', async () => {
-  await mainPage.clickRegister();
+  await mainPage.clickRegisterButton();
 
   const newUser = {
     login: faker.internet.displayName(),
@@ -82,13 +82,13 @@ test('Registration with different passwords, TC003', async () => {
   };
 
   await registerPage.fillRegisterForm(newUser);
-  await registerPage.registerButtonClick();
+  await registerPage.clickRegisterButtonInForm();
 
   await registerPage.expectErrorMessages(['Password doesn\'t match confirmation']);
 });
 
 test('Registration without required fields, TC004', async () => {
-  await mainPage.clickRegister();
+  await mainPage.clickRegisterButton();
 
   const incompleteData = {
     organization: faker.company.name(),
@@ -97,7 +97,7 @@ test('Registration without required fields, TC004', async () => {
   };
 
   await registerPage.fillRegisterForm(incompleteData);
-  await registerPage.registerButtonClick();
+  await registerPage.clickRegisterButtonInForm();
 
   await registerPage.expectErrorMessages([
     'Email cannot be blank',

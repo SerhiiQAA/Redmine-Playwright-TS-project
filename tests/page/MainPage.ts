@@ -19,11 +19,11 @@ class MainPage {
     await this.page.goto('/');
   }
 
-  async clickLogin() {
+  async clickLoginButton() {
     await this.page.locator(this.selectors.loginButton).click();
   }
 
-  async clickRegister() {
+  async clickRegisterButton() {
     await this.page.locator(this.selectors.registerButton).click();
   }
 
