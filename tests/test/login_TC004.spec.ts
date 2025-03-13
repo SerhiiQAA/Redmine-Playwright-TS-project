@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
   await loginPage.goto();
 });
 
-test('Login with empty fields, TC004', async () => {
+test('Login with empty fields / TC 004', async () => {
   await loginPage.submitLoginForm();
   await loginPage.expectErrorMessage('Invalid user or password');
 });

@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
   await lostPasswordPage.goto();
 });
 
-test('Password recovery with a valid email, but without an activated account, TC005', async () => {
+test('Password recovery with a valid email, but without an activated account / TC 005', async () => {
   const dataPath = path.join(__dirname, '../../data/user_data.json');
 
   if (!fs.existsSync(dataPath)) {

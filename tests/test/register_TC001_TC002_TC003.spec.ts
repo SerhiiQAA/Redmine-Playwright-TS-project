@@ -22,7 +22,7 @@ test.beforeEach(async ({ page }) => {
   await mainPage.goto();
 });
 
-test('Registration with valid data, TC001', async () => {
+test('Registration with valid data / TC 001', async () => {
   await mainPage.clickRegisterButton();
 
   userData.password = faker.internet.password({ length: 10 });
@@ -52,7 +52,7 @@ test('Registration with valid data, TC001', async () => {
   fs.writeFileSync(dataPath, JSON.stringify({ login: userData.login, email: userData.email, password: userData.password }));
 });
 
-test('Registration with empty fields, TC002', async () => {
+test('Registration with empty fields / TC 002', async () => {
   await mainPage.clickRegisterButton();
   await registerPage.clickRegisterButtonInForm();
 
@@ -66,7 +66,7 @@ test('Registration with empty fields, TC002', async () => {
   ]);
 });
 
-test('Registration with different passwords, TC003', async () => {
+test('Registration with different passwords / TC 003', async () => {
   await mainPage.clickRegisterButton();
 
   const newUser = {
@@ -87,7 +87,7 @@ test('Registration with different passwords, TC003', async () => {
   await registerPage.expectErrorMessages(['Password doesn\'t match confirmation']);
 });
 
-test('Registration without required fields, TC004', async () => {
+test('Registration without required fields / TC 004', async () => {
   await mainPage.clickRegisterButton();
 
   const incompleteData = {
